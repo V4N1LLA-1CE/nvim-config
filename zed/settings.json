@@ -8,6 +8,17 @@
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
   // AI and integrations
+  "collaboration_panel": {
+    "dock": "right",
+  },
+  "agent": {
+    "dock": "left",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "dock": "right",
+  },
   "cli_default_open_behavior": "existing_window",
   "agent_servers": {
     "github-copilot-cli": {
@@ -35,8 +46,11 @@
   "icon_theme": "Soft Charmed Icons",
   "theme": {
     "mode": "system",
-    "light": "Rosé Pine Dawn",
-    "dark": "Rosé Pine",
+    // "light": "Rosé Pine Dawn",
+    // "dark": "Rosé Pine",
+
+    "dark": "GitHub Dark",
+    "light": "GitHub Light",
   },
   "ui_font_family": "JetBrainsMono Nerd Font",
   "ui_font_size": 15,
@@ -99,7 +113,7 @@
   },
   "outline_panel": {
     "default_width": 300,
-    "dock": "left",
+    "dock": "right",
   },
   "file_finder": {
     "modal_max_width": "large",
@@ -136,4 +150,7 @@
   "auto_indent_on_paste": false,
   "auto_update": true,
   "restore_on_startup": "empty_tab",
+  "show_completions_on_input": true,
+  "show_completion_documentation": true,
+  "auto_signature_help": false,
 }

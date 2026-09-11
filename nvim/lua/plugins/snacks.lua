@@ -69,6 +69,8 @@ return {
     quickfile = { enabled = true }, -- renders the file before plugins finish loading; faster cold opens
 
     picker = {
+      hidden = true, -- Show hidden files (e.g., .env, .git)
+      ignored = true, -- Show git-ignored files
       ui_select = true,
       layout = {
         preset = "vscode",
