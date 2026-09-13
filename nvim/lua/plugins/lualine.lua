@@ -32,19 +32,23 @@ return {
     -- custom theme with transparent middle section
     -- themes:
     -- horizon, everforest, dracula, modus-vivendi, catppuccin, rose-pine, morta
-    local custom = require("lualine.themes.auto") -- follows whatever colorscheme is active
-    local NO_BG = "NONE"
-    -- pills at both ends (z left unset so lualine mirrors it onto a), the theme's
-    -- secondary ground on b and y, nothing behind the middle
-    local base = custom.normal or {}
-    local quiet = base.c and base.c.fg or nil
-    local second = { fg = base.b and base.b.fg or quiet, bg = base.b and base.b.bg or nil }
-    for _, mode in pairs(custom) do
-      if mode.c then
-        mode.c.bg = NO_BG
+    -- rebuilt on every ColorScheme so it follows the active colorscheme
+    local function custom()
+      local theme = require("lualine.utils.loader").load_theme("auto")
+      local NO_BG = "NONE"
+      -- pills at both ends (z left unset so lualine mirrors it onto a), the theme's
+      -- secondary ground on b and y, nothing behind the middle
+      local base = theme.normal or {}
+      local quiet = base.c and base.c.fg or nil
+      local second = { fg = base.b and base.b.fg or quiet, bg = base.b and base.b.bg or nil }
+      for _, mode in pairs(theme) do
+        if mode.c then
+          mode.c.bg = NO_BG
+        end
+        mode.x = { fg = quiet, bg = NO_BG }
+        mode.y = vim.deepcopy(second)
       end
-      mode.x = { fg = quiet, bg = NO_BG }
-      mode.y = vim.deepcopy(second)
+      return theme
     end
 
     -- mini.diff counts, one colour each via inline %#Group#
