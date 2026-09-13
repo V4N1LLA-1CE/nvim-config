@@ -154,6 +154,7 @@ return {
 
       vim.api.nvim_create_autocmd("OptionSet", {
         pattern = "background",
+        nested = true, -- let ColorScheme autocmds (indent tints, statusline) run on the switch
         callback = function()
           vim.cmd.colorscheme(vim.v.option_new == "light" and "github_light" or "github_dark")
         end,

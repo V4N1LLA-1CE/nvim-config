@@ -153,7 +153,7 @@ return {
       for i, group in ipairs(hues) do
         local fg = vim.api.nvim_get_hl(0, { name = group, link = false }).fg
         if fg then
-          vim.api.nvim_set_hl(0, "SnacksIndent" .. i, { fg = fade(fg, 0.3) })
+          vim.api.nvim_set_hl(0, "SnacksIndent" .. i, { fg = fade(fg, 0.45) })
           vim.api.nvim_set_hl(0, "SnacksIndentScope" .. i, { fg = fg })
         end
       end
