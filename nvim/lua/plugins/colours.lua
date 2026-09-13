@@ -1,5 +1,12 @@
 return {
-  { "LazyVim/LazyVim", opts = { colorscheme = "rose-pine" } },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = function()
+        vim.cmd.colorscheme(vim.o.background == "light" and "github_light" or "github_dark")
+      end,
+    },
+  },
 
   -- installed themes
   {
@@ -124,6 +131,31 @@ return {
           }) do
             vim.api.nvim_set_hl(0, g, { fg = vim.api.nvim_get_hl(0, { name = g }).fg })
           end
+        end,
+      })
+    end,
+  },
+  {
+    "projekt0n/github-nvim-theme",
+    name = "github-theme",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("github-theme").setup({
+        options = { transparent = true },
+        groups = {
+          all = {
+            Pmenu = { bg = "NONE" },
+            TabLine = { bg = "NONE" },
+            TabLineFill = { bg = "NONE" },
+          },
+        },
+      })
+
+      vim.api.nvim_create_autocmd("OptionSet", {
+        pattern = "background",
+        callback = function()
+          vim.cmd.colorscheme(vim.v.option_new == "light" and "github_light" or "github_dark")
         end,
       })
     end,

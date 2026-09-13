@@ -91,7 +91,7 @@
     "active_line_width": 1,
   },
   "wrap_guides": [100],
-  "show_wrap_guides": true,
+  "show_wrap_guides": false,
   "preview_tabs": {
     "enabled": false,
   },

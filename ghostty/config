@@ -1,9 +1,9 @@
 # themes
 
 # theme = catppuccin mocha
-theme = light:rose pine dawn,dark:rose pine
+# theme = light:rose pine dawn,dark:rose pine
 # theme = vague
-# theme = Github Dark
+theme = light:Github,dark:Github Dark
 # theme = Kanagawa Wave
 # theme = Treehouse
 # theme = Mellow
